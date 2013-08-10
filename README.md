@@ -5,9 +5,13 @@
 Yet another wordpress cross domain plugin.  
 
 ```php
-header("Access-Control-Allow-Origin: $origin");
-header("Access-Control-Allow-Methods: GET, OPTIONS");
-header("Access-Control-Allow-Headers: Authorization");
+function wp_cors() {
+    $origin = get_option('Access-Control-Allow-Origin');
+    header("Access-Control-Allow-Origin: $origin");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    header("Access-Control-Allow-Headers: Authorization");
+    header("Access-Control-Allow-Credentials: true");    
+}
 ```
 
 ## License

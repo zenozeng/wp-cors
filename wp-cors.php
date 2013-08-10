@@ -3,7 +3,7 @@
   Plugin Name: WP-CORS
   Plugin URI: https://github.com/zenozeng/wp-cors/
   Description: Yet another wordpress cross domain plugin
-  Version: 0.0.1
+  Version: 0.0.2
   Author: Zeno Zeng
   Author: http://zenoes.com/
   License: GNU General Public License Version 3
@@ -12,8 +12,9 @@
 function wp_cors() {
     $origin = get_option('Access-Control-Allow-Origin');
     header("Access-Control-Allow-Origin: $origin");
-    header("Access-Control-Allow-Methods: GET, OPTIONS");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
     header("Access-Control-Allow-Headers: Authorization");
+    header("Access-Control-Allow-Credentials: true");    
 }
 
 # This header should be sent above all
